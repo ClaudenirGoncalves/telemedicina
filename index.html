@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telemedicina - Sala de Videochamada</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Agora SDK -->
+    <script src="https://download.agora.io/sdk/release/AgoraRTC_N.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="login-container" id="login-container">
+            <div class="logo">
+                <h1>Telemedicina</h1>
+                <p>Consulta Virtual</p>
+            </div>
+            <div class="form-container">
+                <div class="input-group">
+                    <label for="cpf">CPF</label>
+                    <input type="text" id="cpf" placeholder="Digite seu CPF" maxlength="14">
+                </div>
+                <div class="input-group">
+                    <label for="user-type">Você é:</label>
+                    <select id="user-type">
+                        <option value="patient">Paciente</option>
+                        <option value="doctor">Médico</option>
+                    </select>
+                </div>
+                <button id="join-btn" class="primary-btn">Entrar na Consulta</button>
+            </div>
+        </div>
+
+        <div class="call-container" id="call-container" style="display: none;">
+            <div class="call-header">
+                <h2>Consulta em Andamento</h2>
+                <div class="call-controls">
+                    <button id="mic-btn" class="control-btn">
+                        <span class="mic-on">🎤</span>
+                        <span class="mic-off" style="display: none;">🔇</span>
+                    </button>
+                    <button id="video-btn" class="control-btn">
+                        <span class="video-on">📹</span>
+                        <span class="video-off" style="display: none;">🚫</span>
+                    </button>
+                    <button id="end-call-btn" class="control-btn end-call">Encerrar</button>
+                </div>
+            </div>
+            <div class="video-container">
+                <div id="local-stream" class="video-player local-player"></div>
+                <div id="remote-stream" class="video-player remote-player"></div>
+            </div>
+            <div class="call-status" id="call-status">
+                <p>Aguardando conexão...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/cpf-validator.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
